@@ -1,4 +1,4 @@
-#include "common.h"
+#include "debug_macros.h"
 #include <cstdio>
 
 int main() {
