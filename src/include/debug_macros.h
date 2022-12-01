@@ -9,9 +9,9 @@
 // #define CONFIG_FILE_LOG 1
 // #endif
 
-#ifndef CONFIG_DEBUG
-#define CONFIG_DEBUG 1
-#endif
+// #ifndef CONFIG_DEBUG
+// #define CONFIG_DEBUG 1
+// #endif
 
 #include <stdint.h>
 #include <stdbool.h>
