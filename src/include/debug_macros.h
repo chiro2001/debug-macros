@@ -1,6 +1,10 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef CONFIG_PRINT_LOG
 #define CONFIG_PRINT_LOG 1
 #endif
@@ -21,5 +25,9 @@
 #include <macro.h>
 
 #include <debug.h>
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

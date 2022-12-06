@@ -9,5 +9,6 @@ add_library(debug_macros INTERFACE)
 target_include_directories(debug_macros INTERFACE "${include_dir}")
 
 add_executable(debug_macros_simple_test ${CMAKE_SOURCE_DIR}/src/simple_test.cpp)
-
 target_link_libraries(debug_macros_simple_test debug_macros)
+add_executable(debug_macros_simple_test_file ${CMAKE_SOURCE_DIR}/src/simple_test_file.cpp)
+target_link_libraries(debug_macros_simple_test_file debug_macros)

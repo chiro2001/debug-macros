@@ -1,6 +1,6 @@
 # debug-macros
 
-Useful debug macros, copy from nemu project. Provide on CMake
+Useful C/C++ debug macros, copying from nemu project, provide via CMake.
 
 ## Usage
 
@@ -29,7 +29,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 
 CPMAddPackage(
         NAME debug_macros
-        VERSION 0.3
+        VERSION 0.7
         GITHUB_REPOSITORY chiro2001/debug-macros)
 
 link_libraries(debug_macros)
@@ -45,6 +45,27 @@ int main() {
   Log("Hi, this' a Log.");
   Dbg("This's a DEBUG message, display when CONFIG_DEBUG was set.");
   Err("This is an ERROR message.");
+  return 0;
+}
+```
+
+Log to file:
+
+```c++
+#ifndef CONFIG_FILE_LOG
+#define CONFIG_FILE_LOG 1
+#endif
+
+#include "debug_macros.h"
+#include <cstdio>
+
+FILE *log_fp = nullptr;
+
+int main() {
+  Log("Hi, this' a Log.");
+  log_fp = fopen("log.txt", "w");
+  Log("This line will log to stdio and file.");
+  fclose(log_fp);
   return 0;
 }
 ```

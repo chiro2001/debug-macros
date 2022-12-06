@@ -1,6 +1,10 @@
 #ifndef __MACRO_H__
 #define __MACRO_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <string.h>
 // macro stringizing
 #define macro_str_temp(x) #x
@@ -90,18 +94,8 @@
 #define unlikely(cond) __builtin_expect(cond, 0)
 #endif
 
-// for AM IOE
-#define io_read(reg)            \
-  ({                            \
-    reg##_T __io_param;         \
-    ioe_read(reg, &__io_param); \
-    __io_param;                 \
-  })
-
-#define io_write(reg, ...)                       \
-  ({                                             \
-    reg##_T __io_param = (reg##_T){__VA_ARGS__}; \
-    ioe_write(reg, &__io_param);                 \
-  })
+#ifdef __cplusplus
+}
+#endif
 
 #endif

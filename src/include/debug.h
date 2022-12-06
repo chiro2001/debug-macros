@@ -1,6 +1,10 @@
 #ifndef __DEBUG_H__
 #define __DEBUG_H__
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <debug_macros.h>
 #include <stdio.h>
 #include <utils.h>
@@ -33,5 +37,9 @@
 #define panic(format, ...) Assert(0, format, ## __VA_ARGS__)
 
 #define TODO() panic("please implement me")
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
