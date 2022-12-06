@@ -22,15 +22,18 @@ extern "C" {
 #endif
 
 #define Log(format, ...) \
-    _Log(CONFIG_PRINT_LOG, ENVR ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR1) "\n", \
+    _Log(CONFIG_PRINT_LOG, ENVR MUXDEF(CONFIG_LOG_COLOR_DISABLED, \
+        "[%s:%d %s] " format, ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR1)) "\n", \
         __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 
 #define Err(format, ...) \
-    _Err(CONFIG_PRINT_LOG, ENVR ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR2) "\n", \
+    _Err(CONFIG_PRINT_LOG, ENVR MUXDEF(CONFIG_LOG_COLOR, \
+        "[%s:%d %s] " format, ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR2)) "\n", \
         __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 
 #define Dbg(format, ...) \
-    _Dbg(CONFIG_PRINT_LOG, ENVR ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR1) "\n", \
+    _Dbg(CONFIG_PRINT_LOG, ENVR MUXDEF(CONFIG_LOG_COLOR_DISABLED, \
+        "[%s:%d %s] " format, ANSI_FMT("[%s:%d %s] " format, CONFIG_LOG_COLOR1)) "\n", \
         __FILE__, __LINE__, __func__, ## __VA_ARGS__)
 
 #define Assert(cond, format, ...) \

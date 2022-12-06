@@ -2,6 +2,11 @@
 #define CONFIG_FILE_LOG 1
 #endif
 
+#ifndef CONFIG_LOG_COLOR_DISABLED
+#define CONFIG_LOG_COLOR_DISABLED 1
+#endif
+
+
 #include "debug_macros.h"
 #include <cstdio>
 
