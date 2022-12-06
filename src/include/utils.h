@@ -81,7 +81,7 @@ extern FILE *log_fp;
   do {                                   \
     IFDEF(console, IFDEF(CONFIG_DEBUG, printf(__VA_ARGS__))); \
     IFDEF(console, IFDEF(CONFIG_DEBUG, fflush(stdout)));      \
-    log_write(__VA_ARGS__);              \
+    IFDEF(CONFIG_DEBUG, log_write(__VA_ARGS__));              \
   } while (0)
 
 #define _Err(console, ...)                        \
