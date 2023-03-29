@@ -22,9 +22,9 @@ extern "C" {
 #include <assert.h>
 #include <string.h>
 
-#include <macro.h>
+#include <_d_macro.h>
 
-#include <debug.h>
+#include <_d_debug.h>
 
 #ifdef __cplusplus
 }
