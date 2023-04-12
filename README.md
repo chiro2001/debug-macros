@@ -29,7 +29,7 @@ include(${CPM_DOWNLOAD_LOCATION})
 
 CPMAddPackage(
         NAME debug_macros
-        VERSION 1.04
+        VERSION 1.05
         GITHUB_REPOSITORY chiro2001/debug-macros)
 
 link_libraries(debug_macros)
@@ -38,6 +38,9 @@ link_libraries(debug_macros)
 [example usage](src/simple_test.cpp)
 
 ```c++
+// prefix before log line
+#define ENVR ANSI_FMT("TEST", ANSI_FG_YELLOW) " "
+
 #include "debug_macros.h"
 #include <cstdio>
 
@@ -45,6 +48,7 @@ int main() {
   Log("Hi, this' a Log.");
   Dbg("This's a DEBUG message, display when CONFIG_DEBUG was set.");
   Err("This is an ERROR message.");
+  Ok("This is SUCCESS message.");
   return 0;
 }
 ```
